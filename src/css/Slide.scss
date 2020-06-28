@@ -7,6 +7,8 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  background-color: #eaf0f3;
+  padding-bottom: 30px;
 
   .navigation-items {
     margin: 10px;
@@ -14,15 +16,19 @@
 }
 
 #navigation_hover {
-  box-sizing: border-box;
   opacity: 0.7;
-  height: 2px;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid #286b92;
-  transition-delay: 0.2s;
-  transition-duration: 1s;
-  transition-timing-function: ease-in-out;
+}
+
+#navigation_arrow {
+  bottom: 244px;
+  margin-left: 100px;
+  width: 0;
+  height: -60px;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid #eaf0f3;
+  position: absolute;
+  transition: "transform 1s ease-in-out";
 }
 
 #right {

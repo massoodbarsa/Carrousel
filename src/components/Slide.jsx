@@ -67,6 +67,8 @@ function Slide({ data }) {
     const hoverClass =
       item.id - 1 === slide.activeSlide ? "navigation_hover" : null;
 
+    const arrow = item.id - 1 === slide.activeSlide ? "navigation_arrow" : null;
+
     return (
       <div
         key={item.id}
@@ -75,6 +77,7 @@ function Slide({ data }) {
         value={item.id}
         onClick={() => handleClick(item.id)}
       >
+        <div id={arrow}></div>
         <SlideContent
           id={item.id}
           // title={item.title}
