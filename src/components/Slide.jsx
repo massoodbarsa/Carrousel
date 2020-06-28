@@ -5,8 +5,6 @@ import "../css/Slide.scss";
 const getWidth = window.innerWidth;
 
 function Slide({ data }) {
-  console.log(data);
-
   const [slide, setSlide] = useState({
     activeSlide: 0,
   });
@@ -66,10 +64,14 @@ function Slide({ data }) {
   });
 
   const navButtons = data.map((item) => {
+    const hoverClass =
+      item.id - 1 === slide.activeSlide ? "navigation_hover" : null;
+
     return (
       <div
         key={item.id}
-        className="navigation-items"
+        className="navigation-items "
+        id={hoverClass}
         value={item.id}
         onClick={() => handleClick(item.id)}
       >

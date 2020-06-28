@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import "../css/SlideContent.scss";
 
 export default function SlideContent(props) {
-  const [state, setstate] = useState({
-    counter: 1,
-  });
 
   const imageContainer = {
     width: `${props.width}px`,
@@ -22,7 +19,7 @@ export default function SlideContent(props) {
                 ? require(`./../images/dark-wood.jpg`)
                 : require(`./../images/light-wood.png`)
             }
-            alt="ridei"
+            alt="Img"
           />
           <div className="image-text">
             <h1>{props.title}</h1>
@@ -35,7 +32,7 @@ export default function SlideContent(props) {
                 ? require(`./../images/${props.file}`)
                 : require(`./../images/sunny-background.jpg`)
             }
-            alt="ridei"
+            alt="Img"
           />
         </div>
       );
@@ -46,7 +43,7 @@ export default function SlideContent(props) {
             style={{ width: "100%" }}
             className="image"
             src={require(`./../images/sunny-background.jpg`)}
-            alt="ridei"
+            alt="Img"
           />
           <div className="weather">
             <h2>Weather today</h2>
