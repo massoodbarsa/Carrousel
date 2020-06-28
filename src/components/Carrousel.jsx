@@ -3,7 +3,7 @@ import Slide from "./Slide";
 import "../css/Carrousel.scss";
 import Data from "../data.json";
 function Carrousel() {
-  const [state, setstate] = useState(Data);
+  const [state] = useState(Data);
 
   return (
     <div className="carrousol-container">

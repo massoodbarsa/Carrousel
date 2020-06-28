@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "../css/SlideContent.scss";
 
 export default function SlideContent(props) {
-
   const imageContainer = {
     width: `${props.width}px`,
     height: `${props.height}`,
