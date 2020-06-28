@@ -80,9 +80,7 @@ function Slide({ data }) {
         <div id={arrow}></div>
         <SlideContent
           id={item.id}
-          // title={item.title}
           background={item.background}
-          // description={item.description}
           file={item.file}
           type={item.type}
           width={getWidth / 6}
