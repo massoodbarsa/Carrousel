@@ -1,61 +1,50 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import SlideContent from "./SlideContent";
 import "../css/Slide.scss";
-function Slide({ data }) {
-  const getWidth = window.innerWidth;
 
+const getWidth = window.innerWidth;
+
+function Slide({ data }) {
   console.log(data);
 
   const [slide, setSlide] = useState({
-    counter: 0,
+    activeSlide: 0,
   });
 
   const slideContent = {
-    transform: `translateX(${-slide.counter * getWidth}px)`,
+    transform: `translateX(${-slide.activeSlide * getWidth}px)`,
     width: `${getWidth}px`,
     transition: "transform 1s ease-in-out",
   };
 
   const handleClick = (item) => {
     setSlide({
-      counter: item - 1,
+      activeSlide: item - 1,
     });
   };
 
+  const autoPlay = () => {
+    if (slide.activeSlide === data.length - 1)
+      return setSlide({
+        activeSlide: 0,
+      });
+    setSlide({
+      activeSlide: slide.activeSlide + 1,
+    });
+  };
 
+  const autoPlayRef = useRef();
 
-  // const tickMin = () => {
-  //   setSlide({
-  //     activeSlide: slide.activeSlide--,
-  //   });
-  // };
+  useEffect(() => {
+    autoPlayRef.current = autoPlay;
+  });
 
-  // const tickPos = () => {
-  //   setInterval(() => activeSlideChange(), 3000);
-
-  //   setSlide({
-  //     activeSlide: slide.activeSlide++,
-  //   });
-
-  // };
-
-  // const activeSlideChange = () => {
-  //   tickPos()
-
-  // };
-
-  // const handleActive = () => {
-  //   clearInterval(tickPos)
-
-  // };
-
-  // useEffect(()=>{
-  //   tickPos()
-
-  // })
-  // setTimeout(function(){ handleActive(); }, 3000);
-
-  // setInterval(function(){ handleActive(); }, 3000);
+  useEffect(() => {
+    const autPlay = () => {
+      autoPlayRef.current();
+    };
+    const interval = setInterval(autPlay, 7000);
+  }, []);
 
   const info = data.map((item) => {
     return (
@@ -106,15 +95,7 @@ function Slide({ data }) {
         {info}
       </div>
 
-      <div className="navigation">
-        {navButtons}
-        {/* <div id="left">
-          <button onClick={minCounter}>Left</button>
-        </div>
-        <div id="right">
-          <button onClick={addCounter}>Right</button>
-        </div> */}
-      </div>
+      <div className="navigation">{navButtons}</div>
     </div>
   );
 }

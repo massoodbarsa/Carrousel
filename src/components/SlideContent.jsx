@@ -6,15 +6,12 @@ export default function SlideContent(props) {
     counter: 1,
   });
 
- 
-
   const imageContainer = {
     width: `${props.width}px`,
     height: `${props.height}`,
   };
 
   const images = () => {
-    // if (props.id===props.activeSlide) {
     if (props.type !== "WEATHER") {
       return (
         <div className="images-container" style={imageContainer}>
@@ -58,15 +55,10 @@ export default function SlideContent(props) {
         </div>
       );
     }
-    // }
   };
   return (
-    <div
-      className="slide-content"
-      // style={slideContent}
-    >
+    <div className="slide-content">
       <div>{images()}</div>
-      {/* <button onClick={add}>click</button> */}
     </div>
   );
 }
