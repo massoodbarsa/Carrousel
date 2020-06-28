@@ -12,7 +12,7 @@ function Slide({ data }) {
   const slideContent = {
     transform: `translateX(${-slide.activeSlide * getWidth}px)`,
     width: `${getWidth}px`,
-    transition: "transform 1s ease-in-out",
+    transition: "transform 2s ease-in-out",
   };
 
   const handleClick = (item) => {
