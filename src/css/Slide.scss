@@ -1,6 +1,7 @@
 .slide {
   display: flex;
   flex-direction: row;
+  transition-timing-function: ease-in-out;
 }
 
 .navigation {
@@ -21,15 +22,15 @@
 
 #navigation_arrow {
   bottom: 244px;
-  margin-left: 100px;
+  margin-left: 140px;
   width: 0;
   height: -60px;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
   border-bottom: 20px solid #eaf0f3;
   position: absolute;
-  transition: "transform 1s ease-in-out";
-  transition-delay: 1.5s;
+  transition: transform 1s ease-in-out;
+  transition-delay: 0.5s;
 }
 
 #right {

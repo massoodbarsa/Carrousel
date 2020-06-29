@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import SlideContent from "./SlideContent";
 import "../css/Slide.scss";
+import "../css/animate.css";
 
 const getWidth = window.innerWidth;
 
@@ -12,7 +13,6 @@ function Slide({ data }) {
   const slideContent = {
     transform: `translateX(${-slide.activeSlide * getWidth}px)`,
     width: `${getWidth}px`,
-    transition: "transform 2s ease-in-out",
   };
 
   const handleClick = (item) => {
@@ -94,7 +94,7 @@ function Slide({ data }) {
 
   return (
     <div className="slide-container">
-      <div className="slide" style={slideContent}>
+      <div className="slide animate__fadeIn" style={slideContent}>
         {info}
       </div>
 
